@@ -41,7 +41,10 @@ When the length of the screen is shorter than its height, I plan on rearranging 
 #### Stretch Goals
 - add additional interactive animations
 
-## Milestone 2:
+## Milestone 2: Check-In
 
 
-## Milestone 3:
+## Milestone 3: Critique Day
+
+
+## Milestone 4: Reflection

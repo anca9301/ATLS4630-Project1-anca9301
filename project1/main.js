@@ -1,6 +1,35 @@
-import _ from 'lodash';
+// import _ from 'lodash';
+import anime from "animejs";
 
-console.log(_.chunk([1,2,3,4],3))
+// animating water
+anime({
+	targets: ".water",
+    duration: 5000,
+    // direction: "normal",
+    easing: "linear",
+    direction: "alternate",
+    delay: 100,
+    loop: true,
+    translateX: innerWidth,
+    translateY: 10
+});
+
+// animating main narwhal
+anime({
+	targets: "#mainSubject",
+    duration: 1000,
+    // direction: "normal",
+    easing: "linear",
+    direction: "alternate",
+    delay: 100,
+    loop: true,
+    translateX: 40,
+    translateY: 40
+
+});
+
+
+// console.log(_.chunk([1,2,3,4],3))
 
 // import './style.css'
 // import javascriptLogo from './javascript.svg'
