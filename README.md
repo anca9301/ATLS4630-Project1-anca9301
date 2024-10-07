@@ -1,5 +1,8 @@
 # ATLS4630-Project1-anca9301
  
+to run, use npm run dev 
+npm run build
+
 ## Milestone 1: Proposal
 
 ### Project Description
