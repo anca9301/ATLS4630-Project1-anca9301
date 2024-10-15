@@ -45,7 +45,22 @@ When the length of the screen is shorter than its height, I plan on rearranging 
 - add additional interactive animations
 
 ## Milestone 2: Check-In
+### Progress Report
+I have completed the code for a general animation of a wave and the swimming narwhal motion. I also have code for the water surface rising as the narwhal dives but have not connected the animation yet.
 
+After giving the swimming concept more thought, I'll probably have to use a simple gif to animate the movement of the narwhal. The movement animation requires too many parts, and additional animation on top of too much could mess up all my progress.
+
+Besides animation, I've made progress on the layout of the website. Since I want to use a horizontal scroll, I've come across a lot of trouble while positioning and overlapping elements.
+
+With my current progress, I'll have to rethink how the diving animation will work. I'll probably have to connect it to a button instead of having it as an automatic action when you reach a certain point.
+
+I've decided that animating textbox popups is not necessary because it won't add much and the animate on scroll library uses css? for the code. It's now a stretch goal in case I finish everything else early.
+
+I've also gathered some facts about narwhals but haven't put them on the website yet. I plan on adding them and styling the page after I figure out the website code.
+
+About Narwhals: https://docs.google.com/document/d/1t-_iC3C2EHUyp6oscho0jM_p4fxnTzrt5LVdV31l4dc/edit?usp=sharing 
+
+Overrall, I have made decent progress. Looking over my milestone 1 goals, they still seem reasonable. However, I was probably confused about the prototyping/proof of concept because I seem to have completed more of the minimum viable product goals.
 
 ## Milestone 3: Critique Day
 

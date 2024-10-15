@@ -7,26 +7,77 @@ body {
 
 .scroll {
   /* top: rem; */
-  left: -0.5rem;
-  position:static;
-  overflow-x: auto;
+  left: -.5rem;
+  position:relative;
+  overflow-x:scroll;
+  /* overflow-y: hidden; */
   white-space: nowrap;
   height: 100vh;
   /* height: 100%; */
   /* width: 500%; */
-  background-color: brown;
+  /* background-color: brown; */
+  z-index: 2;
+}
+
+.container {
+  /* position: fixed; */
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+#surfaceInfoTop {
+  top: 0rem;
+  /* left: 2rem; */
   z-index: 1;
 }
 
-#generalFacts {
-  position: relative;
-  top: 2rem;
-  left: 2rem;
+#surfaceInfoBottom {
+  top: 50%;
+  /* bottom: 0; */
+  left: 25rem;
+  z-index: 2;
+}
 
-  width: 50rem;
-  height: 20rem;
+.infoBox {
+  position: relative;
+  /* top: 2rem;
+  left: 2rem; */
+  /* flex-wrap: nowrap; */
+  float:left;
+  vertical-align: top;
+
+  width: 20rem;
+  height: 15rem;
   background-color: rgba(0, 0, 0, 0.303);
   z-index: 1;
+  /* padding-left: 30rem; */
+  margin: 2rem;
+  /* margin-right: 5rem; */
+}
+
+#generalFacts {
+  left: 50rem;
+}
+
+#habitats {
+  left: 100rem;
+}
+
+#diets {
+  left: 150rem;
+}
+
+#threats {
+  left: 200rem;
+}
+
+#facts {
+  left: 250rem;
+}
+
+#references {
+  left: 300rem;
 }
 
 .fill {
@@ -55,6 +106,7 @@ body {
   position: relative;
   width:100%;
   height: inherit;
+  z-index: 0;
   /* background-color: blueviolet; */
 }
 .water {
@@ -62,6 +114,7 @@ body {
   width: 200rem;
   height: 5rem;
   left: -100rem;
+  z-index: 0;
 }
 #waterLayer0 {
   top: 32%;
