@@ -1,5 +1,7 @@
 // import _ from 'lodash';
 import anime from "animejs";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
 
 const WATER0 = document.getElementById("waterLayer0");
 const WATER1 = document.getElementById("waterLayer1");
@@ -14,14 +16,15 @@ const WATER9 = document.getElementById("waterLayer9");
 
 const WATER_ELEMENTS = [WATER0, WATER1, WATER2, WATER3, WATER4, WATER5, WATER6, WATER7, WATER8, WATER9];
 
-let surface = true;
-let transitionDive = false;
+let atSurface = true;
+// let transitionDive = true;
+let transitionSurface = true;
 
 // WATER0.style.top = "10rem";
 
 // animating water
 
-if (surface) {
+if (atSurface) {
     anime({
         targets: "#waterLayer0, #waterLayer3, #waterLayer6, #waterLayer9", 
         duration: 5000,
@@ -84,12 +87,17 @@ if (surface) {
             loop: false
         })
         
-        // for (let i = 0; i < 10; i++) {
-        //     // WATER_ELEMENTS[i].style.setProperty("top", "-10rem");
-        // }
-        // WATER0.style.setProperty("background-image", "linear-gradient(to right, blue, red)");
-        console.log("passed");
-        
+        setTimeout(function() {
+            for (let i = 0; i < 10; i++) {
+                WATER_ELEMENTS[i].style.setProperty("top", "-10rem");
+            }
+
+            atSurface = false;
+            transitionSurface = false;  
+        }, (10000));        
     }
 }
 
+if (!atSurface) {
+    
+}
