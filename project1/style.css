@@ -10,7 +10,7 @@ body {
   left: -.5rem;
   position:relative;
   overflow-x:scroll;
-  /* overflow-y: hidden; */
+  overflow-y: hidden;
   white-space: nowrap;
   height: 100vh;
   /* height: 100%; */

@@ -1,7 +1,10 @@
 // import _ from 'lodash';
-import anime from "animejs";
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
+// import anime from "animejs";
+// import AOS from 'aos';
+// import 'aos/dist/aos.css'; // You can also use <link> for styles
+
+import pkg from 'animejs';
+const anime = pkg;
 
 const WATER0 = document.getElementById("waterLayer0");
 const WATER1 = document.getElementById("waterLayer1");
