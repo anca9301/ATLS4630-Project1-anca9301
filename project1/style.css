@@ -112,20 +112,22 @@ body {
   z-index: 0;
   /* background-color: blueviolet; */
 }
+.waterImage {
+  height: 15rem;
+  width: auto;
+}
 .water {
   position: absolute;
-  width: 200rem;
+  /* width: 200rem; */
   height: 5rem;
-  left: -100rem;
+  left: -20rem;
   z-index: 0;
 }
 #waterLayer0 {
   top: 32%;
-  background-image: linear-gradient(to right, blue, aqua);
 }
 #waterLayer1 {
   top: 38%;
-  background-image: linear-gradient(to right, aqua, blue);
 }
 #mainSubject {
   position: absolute;
@@ -143,40 +145,32 @@ body {
 }
 #waterLayer2 {
   top: 44%;
-  background-image: linear-gradient(to right, blue, aqua);
 }
 #waterLayer3 {
   top: 50%;
-  background-image: linear-gradient(to right, aqua, blue);
 }
 #waterLayer4 {
   top: 56%;
-  background-image: linear-gradient(to right, blue, aqua);
 }
 #waterLayer5 {
   top: 62%;
-  background-image: linear-gradient(to right, aqua, blue);
 }
 #waterLayer6 {
   top: 68%;
-  background-image: linear-gradient(to right, blue, aqua);
 }
 #waterLayer7 {
   top: 74%;
-  background-image: linear-gradient(to right, aqua, blue);
 }
 #waterLayer8 {
   top: 80%;
-  background-image: linear-gradient(to right, blue, aqua);
 }
 #waterLayer9 {
   top: 86%;
-  background-image: linear-gradient(to right, aqua, blue);
 }
 #underwater {
-  top: 86%;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 128, 0.3), rgba(0, 0, 128, 1));
-  height: 500rem;
-  /* background-color: rgba(0, 0, 33, 0.496); */
-
+  top: 95%;
+  background-image: linear-gradient(to bottom, rgba(9, 49, 74, 0.158), rgba(2, 2, 36, 0.837));
+  height: 300rem;
+  width: 150rem;
+  /* background-color: rgba(0, 0, 0, 0.496); */
 }

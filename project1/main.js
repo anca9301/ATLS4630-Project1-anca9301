@@ -18,7 +18,7 @@ import anime from "animejs/lib/anime.es.js";
 let dive = true;
 
 let surfaceAniTimeline = anime.timeline({
-  duration: anime.random(3000, 5000),
+  duration: anime.random(3_000, 6_000),
   easing: "linear",
   direction: "alternate",
   loop: true,
@@ -34,84 +34,87 @@ let narwhalSwim = anime.timeline({
 
 // ANIMATIONS
 
+let MAX_WATER_X_MOVEMENT = 300;
+let MAX_WATER_Y_MOVEMENT = 50;
+
 surfaceAniTimeline
   .add(
     {
       targets: "#waterLayer0",
-      translateX: anime.random(0, innerWidth),
-      translateY: anime.random(0, 50),
+      translateX: anime.random(0, MAX_WATER_X_MOVEMENT),
+      translateY: anime.random(0, MAX_WATER_Y_MOVEMENT)
     },
     0
   )
   .add(
     {
       targets: "#waterLayer1",
-      translateX: anime.random(0, innerWidth),
-      translateY: anime.random(0, 50),
+      translateX: anime.random(0, MAX_WATER_X_MOVEMENT),
+      translateY: anime.random(0, MAX_WATER_Y_MOVEMENT),
     },
     0
   )
   .add(
     {
       targets: "#waterLayer2",
-      translateX: anime.random(0, innerWidth),
-      translateY: anime.random(0, 50),
+      translateX: anime.random(0, MAX_WATER_X_MOVEMENT),
+      translateY: anime.random(0, MAX_WATER_Y_MOVEMENT),
     },
     0
   )
   .add(
     {
       targets: "#waterLayer3",
-      translateX: anime.random(0, innerWidth),
-      translateY: anime.random(0, 50),
+      translateX: anime.random(0, MAX_WATER_X_MOVEMENT),
+      translateY: anime.random(0, MAX_WATER_Y_MOVEMENT),
     },
     0
   )
   .add(
     {
       targets: "#waterLayer4",
-      translateX: anime.random(0, innerWidth),
-      translateY: anime.random(0, 50),
+      translateX: anime.random(0, MAX_WATER_X_MOVEMENT),
+      translateY: anime.random(0, MAX_WATER_Y_MOVEMENT),
     },
     0
   )
   .add(
     {
       targets: "#waterLayer5",
-      translateX: anime.random(0, innerWidth),
-      translateY: anime.random(0, 50),
+      translateX: anime.random(0, MAX_WATER_X_MOVEMENT),
+      translateY: anime.random(0, MAX_WATER_Y_MOVEMENT),
     },
     0
   )
   .add(
     {
       targets: "#waterLayer6",
-      translateX: anime.random(0, innerWidth),
-      translateY: anime.random(0, 50),
+      translateX: anime.random(0, MAX_WATER_X_MOVEMENT),
+      translateY: anime.random(0, MAX_WATER_Y_MOVEMENT),
     },
     0
   )
   .add(
     {
       targets: "#waterLayer7",
-      translateX: anime.random(0, innerWidth),
-      translateY: anime.random(0, 50),
+      translateX: anime.random(0, MAX_WATER_X_MOVEMENT),
+      translateY: anime.random(0, MAX_WATER_Y_MOVEMENT),
     },
     0
   )
   .add(
     {
       targets: "#waterLayer8",
-      translateX: anime.random(0, innerWidth),
-      translateY: anime.random(0, 50),
+      translateX: anime.random(0, MAX_WATER_X_MOVEMENT),
+      translateY: anime.random(0, MAX_WATER_Y_MOVEMENT),
     },
     0
   )
   .add(
     {
       targets: "#waterLayer9",
-      translateX: anime.random(0, innerWidth),
-      translateY: anime.random(0, 50),
+      translateX: anime.random(0, MAX_WATER_X_MOVEMENT),
+      translateY: anime.random(0, MAX_WATER_Y_MOVEMENT),
     },
     0
   );
@@ -130,7 +133,7 @@ let divingTimeline =  anime.timeline({
     loop: 1
 });
 
-if (0) {    
+if (dive) {    
     divingTimeline.add({
         targets: ".water",
         translateY: -3500
