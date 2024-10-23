@@ -1,108 +1,140 @@
-// import _ from 'lodash';
-// import anime from "animejs";
-// import AOS from 'aos';
-// import 'aos/dist/aos.css'; // You can also use <link> for styles
-import anime from 'animejs/lib/anime.es.js';
-// const anime = require('animejs');
+import anime from "animejs/lib/anime.es.js";
 
-// import pkg from 'animejs';
-// const anime = pkg;
+// const WATER0 = document.getElementById("waterLayer0");
+// const WATER1 = document.getElementById("waterLayer1");
+// const WATER2 = document.getElementById("waterLayer2");
+// const WATER3 = document.getElementById("waterLayer3");
+// const WATER4 = document.getElementById("waterLayer4");
+// const WATER5 = document.getElementById("waterLayer5");
+// const WATER6 = document.getElementById("waterLayer6");
+// const WATER7 = document.getElementById("waterLayer7");
+// const WATER8 = document.getElementById("waterLayer8");
+// const WATER9 = document.getElementById("waterLayer9");
 
-const WATER0 = document.getElementById("waterLayer0");
-const WATER1 = document.getElementById("waterLayer1");
-const WATER2 = document.getElementById("waterLayer2");
-const WATER3 = document.getElementById("waterLayer3");
-const WATER4 = document.getElementById("waterLayer4");
-const WATER5 = document.getElementById("waterLayer5");
-const WATER6 = document.getElementById("waterLayer6");
-const WATER7 = document.getElementById("waterLayer7");
-const WATER8 = document.getElementById("waterLayer8");
-const WATER9 = document.getElementById("waterLayer9");
+// console.log(innerWidth);
 
-const WATER_ELEMENTS = [WATER0, WATER1, WATER2, WATER3, WATER4, WATER5, WATER6, WATER7, WATER8, WATER9];
+// ANIMEJS TIMELINES
 
-let atSurface = true;
-// let transitionDive = true;
-let transitionSurface = true;
+let dive = true;
 
-// WATER0.style.top = "10rem";
+let surfaceAniTimeline = anime.timeline({
+  duration: anime.random(3000, 5000),
+  easing: "linear",
+  direction: "alternate",
+  loop: true,
+});
 
-// animating water
+let narwhalSwim = anime.timeline({
+  duration: 1000,
+  easing: "linear",
+  direction: "alternate",
+  delay: 100,
+  loop: true,
+});
 
-if (atSurface) {
-    anime({
-        targets: "#waterLayer0, #waterLayer3, #waterLayer6, #waterLayer9", 
-        duration: 5000,
-        // direction: "normal",
-        easing: "linear",
-        direction: "alternate",
-        // delay: 100,
-        delay: anime.stagger(1000),
-        loop: true,
-        translateX: innerWidth,
-        translateY: 20
+// ANIMATIONS
+
+surfaceAniTimeline
+  .add(
+    {
+      targets: "#waterLayer0",
+      translateX: anime.random(0, innerWidth),
+      translateY: anime.random(0, 50),
+    },
+    0
+  )
+  .add(
+    {
+      targets: "#waterLayer1",
+      translateX: anime.random(0, innerWidth),
+      translateY: anime.random(0, 50),
+    },
+    0
+  )
+  .add(
+    {
+      targets: "#waterLayer2",
+      translateX: anime.random(0, innerWidth),
+      translateY: anime.random(0, 50),
+    },
+    0
+  )
+  .add(
+    {
+      targets: "#waterLayer3",
+      translateX: anime.random(0, innerWidth),
+      translateY: anime.random(0, 50),
+    },
+    0
+  )
+  .add(
+    {
+      targets: "#waterLayer4",
+      translateX: anime.random(0, innerWidth),
+      translateY: anime.random(0, 50),
+    },
+    0
+  )
+  .add(
+    {
+      targets: "#waterLayer5",
+      translateX: anime.random(0, innerWidth),
+      translateY: anime.random(0, 50),
+    },
+    0
+  )
+  .add(
+    {
+      targets: "#waterLayer6",
+      translateX: anime.random(0, innerWidth),
+      translateY: anime.random(0, 50),
+    },
+    0
+  )
+  .add(
+    {
+      targets: "#waterLayer7",
+      translateX: anime.random(0, innerWidth),
+      translateY: anime.random(0, 50),
+    },
+    0
+  )
+  .add(
+    {
+      targets: "#waterLayer8",
+      translateX: anime.random(0, innerWidth),
+      translateY: anime.random(0, 50),
+    },
+    0
+  )
+  .add(
+    {
+      targets: "#waterLayer9",
+      translateX: anime.random(0, innerWidth),
+      translateY: anime.random(0, 50),
+    },
+    0
+  );
+
+narwhalSwim.add({
+  targets: "#mainSubject",
+  translateX: 40,
+  translateY: 40,
+});
+
+
+let divingTimeline =  anime.timeline({
+    duration: 50_000,
+    direction: "alternate",
+    easing: "linear",
+    loop: 1
+});
+
+if (0) {    
+    divingTimeline.add({
+        targets: ".water",
+        translateY: -3500
     });
-
-    anime({
-        targets: "#waterLayer1, #waterLayer5, #waterLayer8",
-        duration: 3000,
-        // direction: "normal",
-        easing: "linear",
-        direction: "alternate",
-        // delay: 100,
-        delay: anime.stagger(500),
-        loop: true,
-        translateX: innerWidth,
-        translateY: 20
-    });
-
-    anime({
-        targets: "#waterLayer2, #waterLayer4, #waterLayer7",
-        duration: 4000,
-        // direction: "normal",
-        easing: "linear",
-        direction: "alternate",
-        // delay: 100,
-        delay: anime.stagger(750),
-        loop: true,
-        translateX: innerWidth,
-        translateY: 30
-    });
-
-    // animating main narwhal
-    anime({
-        targets: "#mainSubject",
-        duration: 1000,
-        // direction: "normal",
-        easing: "linear",
-        direction: "alternate",
-        delay: 100,
-        loop: true,
-        translateX: 40,
-        translateY: 40
-
-    });
-
-    if (transitionDive) {
-        anime({
-            targets: ".water",
-            duration: 10000,
-            easing: "linear",
-            translateY: -700,
-            loop: false
-        })
-        
-        setTimeout(function() {
-            for (let i = 0; i < 10; i++) {
-                WATER_ELEMENTS[i].style.setProperty("top", "-10rem");
-            }
-
-            atSurface = false;
-            transitionSurface = false;  
-        }, (10000));        
-    }
+    dive = false;
 }
 
-if (!atSurface) {
-    
-}

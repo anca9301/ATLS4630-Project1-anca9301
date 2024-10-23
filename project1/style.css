@@ -3,6 +3,8 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
+  background-color: rgb(31, 113, 208);
+  /* background-color: linear-gradient(to bottom, aqua, navy); */
 }
 
 .scroll {
@@ -47,9 +49,10 @@ body {
   float:left;
   vertical-align: top;
 
-  width: 20rem;
+  width: 50rem;
   height: 15rem;
-  background-color: rgba(0, 0, 0, 0.303);
+  background-color: rgba(255, 255, 255, 0.279);
+  border-radius: 5%;
   z-index: 1;
   /* padding-left: 30rem; */
   margin: 2rem;
@@ -126,13 +129,17 @@ body {
 }
 #mainSubject {
   position: absolute;
-  top: 42%;
-  left: 10%;
+  top: 30%;
+  /* left: 10%; */
   /* align-self: center; */
   /* margin: auto; */
-  background-color: black;
-  height: 10rem;
-  width: 40rem;
+  border: 1pc red solid;
+  height: fit-content;
+  width: fit-content;
+}
+#narwhalSwim{
+  height: 25rem;
+  width: auto;
 }
 #waterLayer2 {
   top: 44%;
@@ -165,4 +172,11 @@ body {
 #waterLayer9 {
   top: 86%;
   background-image: linear-gradient(to right, aqua, blue);
+}
+#underwater {
+  top: 86%;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 128, 0.3), rgba(0, 0, 128, 1));
+  height: 500rem;
+  /* background-color: rgba(0, 0, 33, 0.496); */
+
 }
