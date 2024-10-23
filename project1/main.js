@@ -1,24 +1,21 @@
 // import { random } from "animejs/lib/anime.es.js";
 import anime from "animejs/lib/anime.es.js";
 
-const mainBody = document.getElementById("mainSubject");
-// const mainScroll = document.getElementById("mainScroll");
+const scrollProgress = document.querySelector(".progress");
+scrollProgress.oninput = function () {
+  scroll.seek(scroll.duration * (scrollProgress.value / 100));
+};
 
 let scroll = anime({
-  targets: ".infoBox",
+  targets: ".container",
   translateX: -innerWidth * 2.5,
-  delay: function (el, i) {
-    return i * 500;
-  },
+  // delay: function (el, i) {
+  //   return i * 500;
+  // },
   elasticity: 200,
   easing: "easeInOutSine",
   autoplay: false,
 });
-
-let scrollProgress = document.querySelector(".progress");
-scrollProgress.oninput = function () {
-  scroll.seek(scroll.duration * (scrollProgress.value / 100));
-};
 
 scrollProgress.addEventListener("input", checkDive);
 
@@ -115,7 +112,7 @@ let divingTimeline = anime.timeline({
 
 function checkDive() {
   console.log("checking dive");
-  let willDive = anime.random(0, 1_000);
+  let willDive = anime.random(0, 500);
 
   console.log(willDive);
   if (willDive == 1 && !isDiving) {
