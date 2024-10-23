@@ -1,28 +1,44 @@
+// import { random } from "animejs/lib/anime.es.js";
 import anime from "animejs/lib/anime.es.js";
 
-// const WATER0 = document.getElementById("waterLayer0");
-// const WATER1 = document.getElementById("waterLayer1");
-// const WATER2 = document.getElementById("waterLayer2");
-// const WATER3 = document.getElementById("waterLayer3");
-// const WATER4 = document.getElementById("waterLayer4");
-// const WATER5 = document.getElementById("waterLayer5");
-// const WATER6 = document.getElementById("waterLayer6");
-// const WATER7 = document.getElementById("waterLayer7");
-// const WATER8 = document.getElementById("waterLayer8");
-// const WATER9 = document.getElementById("waterLayer9");
+const mainBody = document.getElementById("mainSubject");
+// const mainScroll = document.getElementById("mainScroll");
 
-// console.log(innerWidth);
+let scroll = anime({
+  targets: ".infoBox",
+  translateX: -innerWidth * 2.5,
+  delay: function (el, i) {
+    return i * 500;
+  },
+  elasticity: 200,
+  easing: "easeInOutSine",
+  autoplay: false,
+});
+
+let scrollProgress = document.querySelector(".progress");
+scrollProgress.oninput = function () {
+  scroll.seek(scroll.duration * (scrollProgress.value / 100));
+};
+
+scrollProgress.addEventListener("input", checkDive);
 
 // ANIMEJS TIMELINES
 
-let dive = true;
+let waterGroups = [
+  "#waterLayer0, #waterLayer6",
+  "#waterLayer1, #waterLayer3",
+  "#waterLayer2, #waterLayer9",
+  "#waterLayer7, #waterLayer5",
+  "#waterLayer4, #waterLayer8",
+];
+const MIN_WATER_DUR = 10_000,
+  MAX_WATER_DUR = 20_000;
+const MIN_WATER_X = -2000,
+  MAX_WATER_X = 2000;
+const MIN_WATER_Y = -50,
+  MAX_WATER_Y = 50;
 
-let surfaceAniTimeline = anime.timeline({
-  duration: anime.random(3_000, 6_000),
-  easing: "linear",
-  direction: "alternate",
-  loop: true,
-});
+let isDiving = false;
 
 let narwhalSwim = anime.timeline({
   duration: 1000,
@@ -32,112 +48,131 @@ let narwhalSwim = anime.timeline({
   loop: true,
 });
 
-// ANIMATIONS
-
-let MAX_WATER_X_MOVEMENT = 300;
-let MAX_WATER_Y_MOVEMENT = 50;
-
-surfaceAniTimeline
-  .add(
-    {
-      targets: "#waterLayer0",
-      translateX: anime.random(0, MAX_WATER_X_MOVEMENT),
-      translateY: anime.random(0, MAX_WATER_Y_MOVEMENT)
-    },
-    0
-  )
-  .add(
-    {
-      targets: "#waterLayer1",
-      translateX: anime.random(0, MAX_WATER_X_MOVEMENT),
-      translateY: anime.random(0, MAX_WATER_Y_MOVEMENT),
-    },
-    0
-  )
-  .add(
-    {
-      targets: "#waterLayer2",
-      translateX: anime.random(0, MAX_WATER_X_MOVEMENT),
-      translateY: anime.random(0, MAX_WATER_Y_MOVEMENT),
-    },
-    0
-  )
-  .add(
-    {
-      targets: "#waterLayer3",
-      translateX: anime.random(0, MAX_WATER_X_MOVEMENT),
-      translateY: anime.random(0, MAX_WATER_Y_MOVEMENT),
-    },
-    0
-  )
-  .add(
-    {
-      targets: "#waterLayer4",
-      translateX: anime.random(0, MAX_WATER_X_MOVEMENT),
-      translateY: anime.random(0, MAX_WATER_Y_MOVEMENT),
-    },
-    0
-  )
-  .add(
-    {
-      targets: "#waterLayer5",
-      translateX: anime.random(0, MAX_WATER_X_MOVEMENT),
-      translateY: anime.random(0, MAX_WATER_Y_MOVEMENT),
-    },
-    0
-  )
-  .add(
-    {
-      targets: "#waterLayer6",
-      translateX: anime.random(0, MAX_WATER_X_MOVEMENT),
-      translateY: anime.random(0, MAX_WATER_Y_MOVEMENT),
-    },
-    0
-  )
-  .add(
-    {
-      targets: "#waterLayer7",
-      translateX: anime.random(0, MAX_WATER_X_MOVEMENT),
-      translateY: anime.random(0, MAX_WATER_Y_MOVEMENT),
-    },
-    0
-  )
-  .add(
-    {
-      targets: "#waterLayer8",
-      translateX: anime.random(0, MAX_WATER_X_MOVEMENT),
-      translateY: anime.random(0, MAX_WATER_Y_MOVEMENT),
-    },
-    0
-  )
-  .add(
-    {
-      targets: "#waterLayer9",
-      translateX: anime.random(0, MAX_WATER_X_MOVEMENT),
-      translateY: anime.random(0, MAX_WATER_Y_MOVEMENT),
-    },
-    0
-  );
-
 narwhalSwim.add({
   targets: "#mainSubject",
   translateX: 40,
   translateY: 40,
 });
 
-
-let divingTimeline =  anime.timeline({
-    duration: 50_000,
-    direction: "alternate",
-    easing: "linear",
-    loop: 1
+anime({
+  targets: waterGroups[0],
+  translateX: anime.random(MIN_WATER_X, MAX_WATER_X),
+  translateY: anime.random(MIN_WATER_Y, MAX_WATER_Y),
+  duration: anime.random(MIN_WATER_DUR, MAX_WATER_DUR),
+  easing: "linear",
+  direction: "alternate",
+  loop: true,
 });
 
-if (dive) {    
-    divingTimeline.add({
-        targets: ".water",
-        translateY: -3500
-    });
-    dive = false;
+anime({
+  targets: waterGroups[1],
+  translateX: anime.random(MIN_WATER_X, MAX_WATER_X),
+  translateY: anime.random(MIN_WATER_Y, MAX_WATER_Y),
+  duration: anime.random(MIN_WATER_DUR, MAX_WATER_DUR),
+  easing: "linear",
+  direction: "alternate",
+  loop: true,
+});
+
+anime({
+  targets: waterGroups[2],
+  translateX: anime.random(MIN_WATER_X, MAX_WATER_X),
+  translateY: anime.random(MIN_WATER_Y, MAX_WATER_Y),
+  duration: anime.random(MIN_WATER_DUR, MAX_WATER_DUR),
+  easing: "linear",
+  direction: "alternate",
+  loop: true,
+});
+
+anime({
+  targets: waterGroups[3],
+  translateX: anime.random(MIN_WATER_X, MAX_WATER_X),
+  translateY: anime.random(MIN_WATER_Y, MAX_WATER_Y),
+  duration: anime.random(MIN_WATER_DUR, MAX_WATER_DUR),
+  easing: "linear",
+  direction: "alternate",
+  loop: true,
+});
+ 
+anime({
+  targets: waterGroups[4],
+  translateX: anime.random(MIN_WATER_X, MAX_WATER_X),
+  translateY: anime.random(MIN_WATER_Y, MAX_WATER_Y),
+  duration: anime.random(MIN_WATER_DUR, MAX_WATER_DUR),
+  easing: "linear",
+  direction: "alternate",
+  loop: true,
+});
+
+let DIVE_WATER_Y_MOVEMENT = -2_000;
+
+let divingTimeline = anime.timeline({
+  duration: 30_000,
+  direction: "alternate",
+  easing: "linear",
+  loop: 1,
+});
+
+function checkDive() {
+  console.log("checking dive");
+  let willDive = anime.random(0, 1_000);
+
+  console.log(willDive);
+  if (willDive == 1 && !isDiving) {
+    isDiving == true;
+    console.log("diving");
+    divingTimeline
+      .add(
+        {
+          targets: waterGroups[0],
+          translateX: anime.random(MIN_WATER_X, MAX_WATER_X),
+          translateY: DIVE_WATER_Y_MOVEMENT,
+        },
+        0
+      )
+      .add(
+        {
+          targets: waterGroups[1],
+          translateX: anime.random(MIN_WATER_X, MAX_WATER_X),
+          translateY: DIVE_WATER_Y_MOVEMENT,
+        },
+        0
+      )
+      .add(
+        {
+          targets: waterGroups[2],
+          translateX: anime.random(MIN_WATER_X, MAX_WATER_X),
+          translateY: DIVE_WATER_Y_MOVEMENT,
+        },
+        0
+      )
+      .add(
+        {
+          targets: waterGroups[3],
+          translateX: anime.random(MIN_WATER_X, MAX_WATER_X),
+          translateY: DIVE_WATER_Y_MOVEMENT,
+        },
+        0
+      )
+      .add(
+        {
+          targets: waterGroups[4],
+          translateX: anime.random(MIN_WATER_X, MAX_WATER_X),
+          translateY: DIVE_WATER_Y_MOVEMENT,
+        },
+        0
+      )
+      .add(
+        {
+          targets: "#underwater",
+          translateY: DIVE_WATER_Y_MOVEMENT,
+        },
+        0
+      );
+
+      setTimeout(() => {
+        isDiving = false;
+      }, 60_000);
+  }
 }
 
