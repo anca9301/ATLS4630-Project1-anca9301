@@ -256,8 +256,8 @@ p {
   display: none;
 }
 
-@media (orientation: portrait) {
+/* @media (orientation: portrait) {
   #errorBox {
     display: block;
   }
-}
+} */
