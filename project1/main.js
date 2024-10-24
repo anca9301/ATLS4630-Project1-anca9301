@@ -7,12 +7,18 @@ scrollProgress.oninput = function () {
   scroll.seek(scroll.duration * (scrollProgress.value / 100));
 };
 
+let isPlaying = false;
+
 let scroll = anime({
   targets: ".container",
-  translateX: - parseInt(anime.get(scrollDiv, 'width')) ,
+  translateX: - parseInt(anime.get(scrollDiv, 'width')) * .95 ,
   elasticity: 200,
   easing: "easeInOutSine",
   autoplay: false,
+  duration: 50_000,
+  update: function() {
+    scrollProgress.value = scroll.progress;
+  }
 });
 
 scrollProgress.addEventListener("input", checkDive);
@@ -112,12 +118,9 @@ let divingTimeline = anime.timeline({
   loop: 1,
 });
 
-// function swimmingFish() {
-
-// }
-
 function checkDive() {
-  let willDive = anime.random(0, 500);
+  let willDive = anime.random(0, 400);
+  console.log("check");
 
   if (notDiving && willDive == 1) {
     notDiving = false;
@@ -207,3 +210,14 @@ function checkDive() {
     })
   }
 }
+
+scrollDiv.addEventListener("click", (e) => {
+  if (isPlaying) {
+    scroll.pause();
+    isPlaying = false;
+  }
+  else {
+    scroll.play();
+    isPlaying = true;
+  }
+})

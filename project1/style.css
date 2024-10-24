@@ -4,6 +4,10 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgb(104, 194, 219);
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+  overscroll-behavior: none;
+  touch-action: none;
 }
 
 .scroll {
@@ -22,6 +26,7 @@ body {
   padding: 0% 50% 0% 0%;
   /* left: 100rem; */
   width: 500rem;
+  margin-left: 75rem;
 }
 
 #infoTop {
@@ -60,32 +65,32 @@ p {
 }
 
 #generalFacts {
-  flex-basis: 2;
+  /* flex-basis: 2; */
   width: 20rem;
 }
 
 #habitats {
-  flex-basis: 2;
+  /* flex-basis: 2; */
   width: 30rem;
 }
 
 #diets {
-  flex-basis: 1;
+  /* flex-basis: 1; */
   width: 20rem;
 }
 
 #threats {
-  flex-basis: 5;
+  /* flex-basis: 5; */
   width: 40rem;
 }
 
 #facts {
-  flex-basis: 4;
+  /* flex-basis: 4; */
   width: 30rem;
 }
 
 #references {
-  flex-basis: 3;
+  /* flex-basis: 3; */
   width: 20rem;
 }
 
@@ -110,6 +115,7 @@ p {
   height: 3rem;
   width: 110%;
   z-index: 3;
+  /* align-content: center; */
 }
 
 /* For Surface Water Animations */
@@ -190,6 +196,7 @@ p {
   /* width: 90%; */
   margin-left: 10%;
   margin-right: 10%;
+  top: 25%;
 
   width: 80%;
   
@@ -256,8 +263,100 @@ p {
   display: none;
 }
 
-/* @media (orientation: portrait) {
-  #errorBox {
+@media (max-width: 800px) {
+  /* #errorBox {
     display: block;
+  } */
+   body {
+    font-size: 13px;
+   }
+   #mainSubject {
+    left: -300px;
+   }
+   #child1 {
+    left: 0px;
+   }
+   #narwhalSwim {
+    height: 17rem;
+   }
+   #narwhalSwim1 {
+    height: 10rem;
+   }
+   #threats {
+    width: 20rem;
+   }
+   #habitats {
+    width: 18rem;
+   }
+   #facts {
+    width: 19rem;
+   }
+
+   #fishSwim1 {
+    height: 10rem;
   }
-} */
+  
+  #fishSwim2 {
+    height: 5rem;
+  }
+  
+  #fishSwim3 {
+    height: 15rem;
+  }
+  
+  #fishSwim4 {
+    height: 10rem;
+  }
+}
+
+@media (max-width: 1000px) and (min-width:800px) {
+   body {
+    font-size: 13px;
+   }
+   #mainSubject {
+    left: -300px;
+   }
+   #child1 {
+    left: 300px;
+   }
+}
+
+@media (max-height: 600px) and (max-width: 750px) {
+   body {
+    font-size: 11px;
+   }
+   #mainSubject {
+    left: -200px;
+   }
+   #child1 {
+    left: 300px;
+   }
+    .infoBox {
+      padding:  2px 10px 2px 10px;
+    }
+   #threats {
+    width: 40rem;
+   }
+   #habitats {
+    width: 18rem;
+   }
+   #facts {
+    width: 25rem;
+   }
+
+   #fishSwim1 {
+    height: 10rem;
+  }
+  
+  #fishSwim2 {
+    height: 5rem;
+  }
+  
+  #fishSwim3 {
+    height: 15rem;
+  }
+  
+  #fishSwim4 {
+    height: 10rem;
+  }
+}
