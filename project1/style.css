@@ -1,8 +1,10 @@
+/* GENERAL CSS */
+
 body {
   overflow: hidden;
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: rgb(104, 194, 219);
   overflow-x: hidden !important;
   overflow-y: hidden !important;
@@ -10,12 +12,18 @@ body {
   touch-action: none;
 }
 
+/* SCROLL CSS */
+
+p {
+  overflow-wrap: break-all;
+  word-wrap: break-word;
+}
+
 .scroll {
-  left: -.5rem;
-  position:relative;
+  position:absolute;
   white-space: nowrap;
   height: 100vh;
-  width: fit-content;
+  width: 700vh;
   z-index: 2;
 }
 
@@ -23,10 +31,40 @@ body {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
-  padding: 0% 50% 0% 0%;
-  /* left: 100rem; */
-  width: 500rem;
-  margin-left: 75rem;
+}
+
+#bottomGrouping {
+  bottom: 0;
+  left: -5vw;
+  position: absolute;
+  background-color: black;
+  height: 10vh;
+  width: 110vw;
+  z-index: 3;
+}
+
+.progress {
+  position: absolute;
+  z-index: 3;
+  margin-left: 10%;
+  margin-right: 10%;
+  top: 45%;
+  width: 80%;
+}
+
+.control {
+  position: absolute;
+  margin-left: 40%;
+  margin-right: 40%;
+  bottom: 2rh;
+  color: white;
+  align-self: center;
+  text-align: center;
+  border-radius: 10%;
+  width: 10%;
+  top: 10%;
+  font-size: 3vh;
+  font-family: monospace;
 }
 
 #infoTop {
@@ -34,151 +72,106 @@ body {
   z-index: 1;
 }
 
-#infoBottom {
-  top: 40%;
-  left: 50rem;
-  z-index: 2;
-}
-
-p {
-  overflow-wrap: break-all;
-  word-wrap: break-word;
-}
-
 .infoBox {
-  position: relative;
+  position: absolute;
   float:left;
   vertical-align: top;
-  /* height: 15rem; */
   background-color: rgba(255, 255, 255, 0.496);
   border-radius: 5%;
   z-index: 1;
   margin: auto;
-  margin-top: 2rem;
+  margin-top: 2vh;
   overflow-wrap: break-word;
-  /* word-wrap: break-word; */
   flex-direction: column;
   text-wrap: wrap;
-  padding: 20px;
-  /* margin-right: 50rem; */
+  padding: 1rem;
+  margin-right: 50rem;
   align-content: center;
+  top: 5vh;
+}
+
+#title {
+  left: 10vw;
+  top: 10vh;
+  font-weight: bolder;
+  font-size:10vh;
 }
 
 #generalFacts {
-  /* flex-basis: 2; */
+  left: 105vw;
   width: 20rem;
 }
 
 #habitats {
-  /* flex-basis: 2; */
+  left: 205vw;
   width: 30rem;
 }
 
 #diets {
-  /* flex-basis: 1; */
+  left: 305vw;
   width: 20rem;
 }
 
 #threats {
-  /* flex-basis: 5; */
+  left: 405vw;
   width: 40rem;
 }
 
 #facts {
-  /* flex-basis: 4; */
+  left: 505vw;
   width: 30rem;
 }
 
 #references {
-  /* flex-basis: 3; */
+  left: 605vw;
   width: 20rem;
 }
 
-.fill {
-  position: relative;
-  top: 10rem;
-  width: 10rem;
-  display: inline-block;
-  text-align: center;
-  padding: 14px;
-  text-decoration: none;
-  z-index: 2;
-}
+/* WATER CSS */
 
-#bottomGrouping {
-  /* border: black 1px solid; */
-  bottom: 0;
-  left: -5%;
-  /* position: fixed; */
-  position: absolute;
-  background-color: black;
-  height: 3rem;
-  width: 110%;
-  z-index: 3;
-  /* align-content: center; */
-}
-
-/* For Surface Water Animations */
-#waterSurfaceGrouping {
-  position: relative;
-  width:100%;
-  height: inherit;
-  z-index: 0;
-  /* background-color: blueviolet; */
-}
 .waterImage {
   height: 60rem;
   width: auto;
 }
 .water {
   position: absolute;
-  /* width: 200rem; */
   height: 5rem;
-  left: -150rem;
+  left: -150vw;
   z-index: 0;
 }
 #waterLayer0 {
-  top: 38%;
+  top: 37vh;
 }
 #waterLayer1 {
-  top: 42%;
-}
-#mainSubject {
-  position: absolute;
-  top: 35%;
-  /* left: 10%; */
-  /* align-self: center; */
-  /* margin: auto; */
-  height: fit-content;
-  width: fit-content;
-}
-#narwhalSwim{
-  height: 25rem;
-  width: auto;
+  left: -180vw;
+  top: 39vh;
 }
 #waterLayer2 {
-  top: 44%;
+  left: -130vw;
+  top: 42vh;
 }
 #waterLayer3 {
-  top: 50%;
+  top: 46vh;
 }
 #waterLayer4 {
-  top: 55%;
+  top: 52vh;
 }
 #waterLayer5 {
-  top: 60%;
+  top: 58vh;
 }
 #waterLayer6 {
-  top: 64%;
+  top: 65vh;
 }
 #waterLayer7 {
-  top: 68%;
+  left: -130vw;
+  top: 69vh;
 }
 #waterLayer8 {
-  top: 74%;
+  left: -170vw;
+  top: 75vh;
 }
 #waterLayer9 {
-  top: 80%;
+  top: 81vh;
 }
 #underwater {
   left: -5rem;
@@ -186,20 +179,19 @@ p {
   background-image: linear-gradient(to bottom, rgba(18, 67, 124, 0.318), rgba(2, 2, 36, 0.914));
   height: 200rem;
   width: 200rem;
-  /* background-color: rgba(255, 0, 0, 0.56); */
 }
 
-.progress {
-  position: absolute;
-  z-index: 3;
-  /* align-self: center; */
-  /* width: 90%; */
-  margin-left: 10%;
-  margin-right: 10%;
-  top: 25%;
+/* NARWHAL CSS */
 
-  width: 80%;
-  
+#mainSubject {
+  position: absolute;
+  top: 34vh;
+  height: fit-content;
+  width: fit-content;
+}
+#narwhalSwim{
+  height: 55vh;
+  width: auto;
 }
 
 #child1 {
@@ -216,65 +208,49 @@ p {
   width: auto;
 }
 
+/* FISH CSS */
+
 .fish {
   position: absolute;
-  left: 110%;
+  left: 130vw;
 }
 
 #fishSwim1 {
   height: 15rem;
-  left:-50%;
+  left:-50vw;
   width: auto;
 }
 
 #fishSwim2 {
   height: 10rem;
-  top: 30%;
-  left:-50%;
+  top: 30vh;
+  left:-50vw;
   width: auto;
 }
 
 #fishSwim3 {
   height: 20rem;
-  top: 40%;
+  top: 40vh;
   width: auto;
 }
 
 #fishSwim4 {
   height: 15rem;
-  top: 60%;
+  top: 60vw;
   width: auto;
 }
 
-#errorBox {
-  position: absolute;
-  background-color: black;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  align-content: center;
-  top: -.5rem;
-  left: -.5rem;
-  z-index: 4;
-  padding: 0;
-  margin: 0;
-  /* border: 5rem red solid; */
-  color: white;
-  display: none;
-}
+/* RESPONSIVE SCREEN */
 
 @media (max-width: 800px) {
-  /* #errorBox {
-    display: block;
-  } */
    body {
     font-size: 13px;
    }
    #mainSubject {
-    left: -300px;
+    left: -40vw;
    }
    #child1 {
-    left: 0px;
+    left: 20vw;
    }
    #narwhalSwim {
     height: 17rem;
@@ -309,39 +285,48 @@ p {
   }
 }
 
-@media (max-width: 1000px) and (min-width:800px) {
+@media (max-width: 1000px) and (min-width:600px) {
    body {
     font-size: 13px;
    }
    #mainSubject {
-    left: -300px;
+    top: 25vh;
+    left: -10vw;
    }
    #child1 {
-    left: 300px;
+    /* top: 60vh; */
+    left: 40vw;
+   }
+   #narwhalSwim {
+    height: 20rem;
+   }
+   #narwhalSwim1 {
+    height: 12rem;
    }
 }
 
-@media (max-height: 600px) and (max-width: 750px) {
+@media (max-height: 400px) and (max-width: 800px) {
    body {
-    font-size: 11px;
+    font-size: 10px;
    }
    #mainSubject {
-    left: -200px;
+    left: -70vw;
    }
    #child1 {
-    left: 300px;
+    left: 10vw;
    }
     .infoBox {
       padding:  2px 10px 2px 10px;
     }
    #threats {
-    width: 40rem;
+    top: 2vh;
+    width: 28rem;
    }
    #habitats {
     width: 18rem;
    }
    #facts {
-    width: 25rem;
+    width: 20rem;
    }
 
    #fishSwim1 {

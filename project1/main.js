@@ -1,29 +1,44 @@
-// import { random } from "animejs/lib/anime.es.js";
 import anime from "animejs/lib/anime.es.js";
 
 const scrollDiv = document.querySelector(".scroll");
 const scrollProgress = document.querySelector(".progress");
+const scrollStatus = document.querySelector(".control");
 scrollProgress.oninput = function () {
   scroll.seek(scroll.duration * (scrollProgress.value / 100));
+  console.log("chck scrol");
 };
+
+// SCROLL ANIMATIONS & CONTROL
 
 let isPlaying = false;
 
 let scroll = anime({
   targets: ".container",
-  translateX: - parseInt(anime.get(scrollDiv, 'width')) * .95 ,
+  translateX: "-600vw",
   elasticity: 200,
   easing: "easeInOutSine",
   autoplay: false,
   duration: 50_000,
-  update: function() {
+  update: function () {
     scrollProgress.value = scroll.progress;
-  }
+  },
 });
 
 scrollProgress.addEventListener("input", checkDive);
 
-// ANIMEJS TIMELINES
+scrollDiv.addEventListener("click", (e) => {
+  if (isPlaying) {
+    scroll.pause();
+    isPlaying = false;
+    scrollStatus.textContent = "PAUSED";
+  } else {
+    scroll.play();
+    isPlaying = true;
+    scrollStatus.textContent = "PLAYING";
+  }
+});
+
+// WATER ANIMATIONS
 
 let waterGroups = [
   "#waterLayer0, #waterLayer6",
@@ -38,26 +53,6 @@ const MIN_WATER_X = -2000,
   MAX_WATER_X = 2000;
 const MIN_WATER_Y = -50,
   MAX_WATER_Y = 50;
-
-let notDiving = true;
-
-let narwhalSwim = anime.timeline({
-  duration: 1000,
-  easing: "linear",
-  direction: "alternate",
-  delay: 100,
-  loop: true,
-});
-
-narwhalSwim.add({
-  targets: "#mainSubject",
-  translateX: 40,
-  translateY: 40,
-},0).add({
-  targets:"#child1",
-  translateX: -25,
-  translateY: -25
-},0);
 
 anime({
   targets: waterGroups[0],
@@ -98,7 +93,7 @@ anime({
   direction: "alternate",
   loop: true,
 });
- 
+
 anime({
   targets: waterGroups[4],
   translateX: anime.random(MIN_WATER_X, MAX_WATER_X),
@@ -109,6 +104,37 @@ anime({
   loop: true,
 });
 
+// NARWHAL ANIMATIONS
+
+let narwhalSwim = anime.timeline({
+  duration: 1000,
+  easing: "linear",
+  direction: "alternate",
+  delay: 100,
+  loop: true,
+});
+
+narwhalSwim
+  .add(
+    {
+      targets: "#mainSubject",
+      translateX: 40,
+      translateY: 40,
+    },
+    0
+  )
+  .add(
+    {
+      targets: "#child1",
+      translateX: -25,
+      translateY: -25,
+    },
+    0
+  );
+
+// DIVING ANIMATIONS
+
+let notDiving = true;
 let DIVE_WATER_Y_MOVEMENT = -2_000;
 
 let divingTimeline = anime.timeline({
@@ -119,7 +145,7 @@ let divingTimeline = anime.timeline({
 });
 
 function checkDive() {
-  let willDive = anime.random(0, 400);
+  let willDive = anime.random(0, 200);
   console.log("check");
 
   if (notDiving && willDive == 1) {
@@ -174,50 +200,39 @@ function checkDive() {
         0
       );
 
-      setTimeout(() => {
-        notDiving = true;
-      }, 90_000);
+    setTimeout(() => {
+      notDiving = true;
+    }, 90_000);
   }
   if (notDiving == false) {
-    console.log("passed")
+    console.log("passed");
     anime({
       targets: "#fishSwim1",
       translateX: innerWidth,
-      duration: anime.random(100_000,200_000),
-      loop:true,
-      delay: anime.random(2_000,6_000)
-    })
+      duration: anime.random(100_000, 200_000),
+      loop: true,
+      delay: anime.random(2_000, 6_000),
+    });
     anime({
       targets: "#fishSwim2",
       translateX: innerWidth,
-      duration: anime.random(100_000,200_000),
-      loop:true,
-      delay:anime.random(20_000,25_000)
-    })
+      duration: anime.random(100_000, 200_000),
+      loop: true,
+      delay: anime.random(20_000, 25_000),
+    });
     anime({
       targets: "#fishSwim3",
       translateX: -innerWidth,
-      duration: anime.random(100_000,200_000),
-      loop:true,
-      delay: anime.random(12_000,15_000)
-    })
+      duration: anime.random(100_000, 200_000),
+      loop: true,
+      delay: anime.random(12_000, 15_000),
+    });
     anime({
       targets: "#fishSwim4",
       translateX: -innerWidth,
-      duration: anime.random(100_000,200_000),
-      loop:true,
-      delay: anime.random(30_000,35_000)
-    })
+      duration: anime.random(100_000, 200_000),
+      loop: true,
+      delay: anime.random(30_000, 35_000),
+    });
   }
 }
-
-scrollDiv.addEventListener("click", (e) => {
-  if (isPlaying) {
-    scroll.pause();
-    isPlaying = false;
-  }
-  else {
-    scroll.play();
-    isPlaying = true;
-  }
-})
