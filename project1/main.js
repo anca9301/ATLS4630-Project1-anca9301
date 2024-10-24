@@ -1,6 +1,7 @@
 // import { random } from "animejs/lib/anime.es.js";
 import anime from "animejs/lib/anime.es.js";
 
+const scrollDiv = document.querySelector(".scroll");
 const scrollProgress = document.querySelector(".progress");
 scrollProgress.oninput = function () {
   scroll.seek(scroll.duration * (scrollProgress.value / 100));
@@ -8,10 +9,7 @@ scrollProgress.oninput = function () {
 
 let scroll = anime({
   targets: ".container",
-  translateX: -innerWidth * 2.5,
-  // delay: function (el, i) {
-  //   return i * 500;
-  // },
+  translateX: - parseInt(anime.get(scrollDiv, 'width')) ,
   elasticity: 200,
   easing: "easeInOutSine",
   autoplay: false,
@@ -35,7 +33,7 @@ const MIN_WATER_X = -2000,
 const MIN_WATER_Y = -50,
   MAX_WATER_Y = 50;
 
-let isDiving = false;
+let notDiving = true;
 
 let narwhalSwim = anime.timeline({
   duration: 1000,
@@ -49,7 +47,11 @@ narwhalSwim.add({
   targets: "#mainSubject",
   translateX: 40,
   translateY: 40,
-});
+},0).add({
+  targets:"#child1",
+  translateX: -25,
+  translateY: -25
+},0);
 
 anime({
   targets: waterGroups[0],
@@ -110,13 +112,15 @@ let divingTimeline = anime.timeline({
   loop: 1,
 });
 
+// function swimmingFish() {
+
+// }
+
 function checkDive() {
-  console.log("checking dive");
   let willDive = anime.random(0, 500);
 
-  console.log(willDive);
-  if (willDive == 1 && !isDiving) {
-    isDiving == true;
+  if (notDiving && willDive == 1) {
+    notDiving = false;
     console.log("diving");
     divingTimeline
       .add(
@@ -168,8 +172,38 @@ function checkDive() {
       );
 
       setTimeout(() => {
-        isDiving = false;
-      }, 60_000);
+        notDiving = true;
+      }, 90_000);
+  }
+  if (notDiving == false) {
+    console.log("passed")
+    anime({
+      targets: "#fishSwim1",
+      translateX: -innerWidth,
+      duration: anime.random(100_000,200_000),
+      loop:true,
+      delay: anime.random(2_000,6_000)
+    })
+    anime({
+      targets: "#fishSwim2",
+      translateX: -innerWidth,
+      duration: anime.random(100_000,200_000),
+      loop:true,
+      delay:anime.random(20_000,25_000)
+    })
+    anime({
+      targets: "#fishSwim3",
+      translateX: -innerWidth,
+      duration: anime.random(100_000,200_000),
+      loop:true,
+      delay: anime.random(12_000,15_000)
+    })
+    anime({
+      targets: "#fishSwim4",
+      translateX: -innerWidth,
+      duration: anime.random(100_000,200_000),
+      loop:true,
+      delay: anime.random(30_000,35_000)
+    })
   }
 }
-
