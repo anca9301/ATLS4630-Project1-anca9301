@@ -216,14 +216,14 @@ p {
 
 #fishSwim1 {
   height: 15rem;
-  left:-20%;
+  left:-50%;
   width: auto;
 }
 
 #fishSwim2 {
   height: 10rem;
   top: 30%;
-  left:-20%;
+  left:-50%;
   width: auto;
 }
 
@@ -237,4 +237,27 @@ p {
   height: 15rem;
   top: 60%;
   width: auto;
+}
+
+#errorBox {
+  position: absolute;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  align-content: center;
+  top: -.5rem;
+  left: -.5rem;
+  z-index: 4;
+  padding: 0;
+  margin: 0;
+  /* border: 5rem red solid; */
+  color: white;
+  display: none;
+}
+
+@media (orientation: portrait) {
+  #errorBox {
+    display: block;
+  }
 }
