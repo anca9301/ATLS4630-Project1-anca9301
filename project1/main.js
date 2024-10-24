@@ -179,14 +179,14 @@ function checkDive() {
     console.log("passed")
     anime({
       targets: "#fishSwim1",
-      translateX: -innerWidth,
+      translateX: innerWidth,
       duration: anime.random(100_000,200_000),
       loop:true,
       delay: anime.random(2_000,6_000)
     })
     anime({
       targets: "#fishSwim2",
-      translateX: -innerWidth,
+      translateX: innerWidth,
       duration: anime.random(100_000,200_000),
       loop:true,
       delay:anime.random(20_000,25_000)

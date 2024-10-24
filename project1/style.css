@@ -216,12 +216,14 @@ p {
 
 #fishSwim1 {
   height: 15rem;
+  left:-20%;
   width: auto;
 }
 
 #fishSwim2 {
   height: 10rem;
   top: 30%;
+  left:-20%;
   width: auto;
 }
 
